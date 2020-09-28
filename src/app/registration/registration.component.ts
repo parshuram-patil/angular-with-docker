@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationExtras, Router } from '@angular/router';
 import { UserService } from '../services/user.service';
 
 @Component({
@@ -13,11 +14,12 @@ export class RegistrationComponent implements OnInit {
   fName: string
   lName: string
   title: string
+  email: string
   company: string
   address: string
   phone: string
 
-  constructor(private regService: UserService) { }
+  constructor(private regService: UserService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -35,7 +37,13 @@ export class RegistrationComponent implements OnInit {
       phone: this.phone,
     }).subscribe((user) => {
       this.isLoading = false
-      alert(user.email)
+      let navigationExtras: NavigationExtras = {
+        queryParams: {
+          "email": user.email
+        }
+      };
+      this.router.navigate(['/profile'], navigationExtras);
+      //alert(user.email)
     }, (error) => {
       alert("Alert")
     })
