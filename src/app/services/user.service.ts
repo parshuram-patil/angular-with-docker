@@ -13,7 +13,7 @@ export class UserService {
 
   registerUser(regReqBody: RegistrationRequest): Observable<GetUserResponse> {
 
-    return this.httpClient.post<GetUserResponse>(environment.API_URL, regReqBody)
+    return this.httpClient.post<GetUserResponse>(environment.API_URL + '/registration', regReqBody)
   }
 
   getUser(getUserReqBody: GetUserRequest): Observable<GetUserResponse> {
