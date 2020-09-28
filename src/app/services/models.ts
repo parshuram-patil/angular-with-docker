@@ -15,3 +15,14 @@ export interface GetUserResponse extends RegistrationRequest {
 export interface GetUserRequest {
     email: string;
 }
+
+var profilePictureMap = new Map()
+profilePictureMap.set("parshuram", "parshuram.jpg");
+profilePictureMap.set("manoj", "manoj.jpg");
+profilePictureMap.set("jane", "jane.jpg");
+profilePictureMap.set("default", "default.jpg");
+
+export function getProfilePictureName(firstName: string): string {
+    var profilePictureName =  profilePictureMap.get(firstName.toLowerCase())
+    return profilePictureName ? profilePictureName : profilePictureMap.get("default")
+}

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { getProfilePictureName } from '../services/models';
 import { UserService } from '../services/user.service';
 
 @Component({
@@ -9,8 +10,11 @@ import { UserService } from '../services/user.service';
 export class ProfileComponent implements OnInit {
 
   isLoading: boolean = true
+  loadingMessage: string ="'loading'"
   fullName: string
+  profilePictureName: string 
   title: string
+  company: string
   address: string
   email: string
   phone: string
@@ -18,11 +22,14 @@ export class ProfileComponent implements OnInit {
   constructor(private regService: UserService) { }
 
   ngOnInit(): void {
+    this.isLoading = true
     this.regService.getUser({
       email: 'Parshuram.Patil@gmail.com'
     }).subscribe((user) => {
       this.fullName = user.fullName
+      this.profilePictureName = getProfilePictureName(user.firstName)
       this.title = user.title
+      this.company = user.company
       this.address = user.address
       this.email = user.email
       this.phone = user.phone

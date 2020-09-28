@@ -8,6 +8,8 @@ import { UserService } from '../services/user.service';
 })
 export class RegistrationComponent implements OnInit {
 
+  isLoading: boolean = false
+  loadingMessage: string = "loading"
   fName: string
   lName: string
   title: string
@@ -22,6 +24,8 @@ export class RegistrationComponent implements OnInit {
 
   onFormSubmit() {
     // console.log(this.fName + " " + this.lName)
+    this.loadingMessage = this.fName + ", Registration is in progress";
+    this.isLoading = true
     this.regService.registerUser({
       firstName: this.fName,
       lastName: this.lName,
@@ -30,6 +34,7 @@ export class RegistrationComponent implements OnInit {
       address: this.address,
       phone: this.phone,
     }).subscribe((user) => {
+      this.isLoading = false
       alert(user.email)
     }, (error) => {
       alert("Alert")
@@ -37,3 +42,4 @@ export class RegistrationComponent implements OnInit {
   }
 
 }
+
