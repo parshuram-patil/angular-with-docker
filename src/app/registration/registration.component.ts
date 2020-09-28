@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistrationComponent implements OnInit {
 
+  fName: string
+  lName: string
+  address: string
+  phone: string
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  onFormSubmit() {
+    console.log(this.fName + " " + this.lName)
+ }
 
 }
