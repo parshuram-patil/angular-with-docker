@@ -1,0 +1,14 @@
+.spinner-container {
+    display: flex;
+    justify-content: space-evenly;
+    font-size: large;
+    
+    ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+      stroke: #239196;
+    }
+  }
+
+.spinner-elements {
+  text-align: center;
+}
+  

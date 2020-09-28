@@ -5,16 +5,20 @@ import { AppComponent } from './app.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AppRoutingModule } from './app-routing.module';
+import { SpinnerComponent } from './spinner/spinner.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistrationComponent,
-    ProfileComponent
+    ProfileComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
