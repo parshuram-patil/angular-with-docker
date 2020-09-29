@@ -44,7 +44,9 @@ export class RegistrationComponent implements OnInit {
       };
       this.router.navigate(['/profile'], navigationExtras);
     }, (error) => {
-      alert(error.error.error)
+      let errMsg = error.error.error 
+      errMsg = errMsg ? errMsg : error.message
+      alert(errMsg)
       this.isLoading = false
     })
   }

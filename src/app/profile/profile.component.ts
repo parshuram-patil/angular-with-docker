@@ -41,7 +41,9 @@ export class ProfileComponent implements OnInit {
       this.phone = user.phone
       this.isLoading = false
     }, (error) => {
-      alert(error.error.error)
+      let errMsg = error.error.error 
+      errMsg = errMsg ? errMsg : error.message
+      alert(errMsg)
       this.router.navigate(['/'])
     })
   }
