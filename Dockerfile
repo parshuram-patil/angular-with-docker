@@ -9,7 +9,7 @@ ENV SERVER_HOST $SERVER_HOST
 ENV SERVER_PORT $SERVER_PORT
 ENV SERVER_PROTOCOL $SERVER_PROTOCOL
 
-HEALTHCHECK --interval=5s --timeout=2s --retries=3 CMD curl --fail --silent http://localhost:$HOST_PORT/registration || exit 1
+HEALTHCHECK --interval=5s --timeout=2s --retries=3 CMD curl --fail --silent http://localhost:$HOST_PORT/ || exit 1
 
 WORKDIR /usr/src/app
 COPY package.json package-lock.json ./
