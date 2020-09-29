@@ -23,6 +23,8 @@ profilePictureMap.set("jane", "jane.jpg");
 profilePictureMap.set("default", "default.jpg");
 
 export function getProfilePictureName(firstName: string): string {
+    if (!firstName)
+        firstName = 'default'
     var profilePictureName =  profilePictureMap.get(firstName.toLowerCase())
     return profilePictureName ? profilePictureName : profilePictureMap.get("default")
 }

@@ -27,6 +27,7 @@ export class ProfileComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
       this.email = params["email"]
     })
+    this.loadingMessage =  this.email ? this.email.split('.')[0] + ', we are creating your profile' : 'loading'
     this.isLoading = true
     this.regService.getUser({
       email: this.email
@@ -40,7 +41,8 @@ export class ProfileComponent implements OnInit {
       this.phone = user.phone
       this.isLoading = false
     }, (error) => {
-      alert("Alert")
+      alert(error.error.error)
+      this.router.navigate(['/'])
     })
   }
 

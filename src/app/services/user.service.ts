@@ -17,7 +17,7 @@ export class UserService {
   }
 
   getUser(getUserReqBody: GetUserRequest): Observable<GetUserResponse> {
-
-    return this.httpClient.get<GetUserResponse>(environment.API_URL + '/user?email=' + getUserReqBody.email)
+    let urlQuery = getUserReqBody.email ? '?email=' + getUserReqBody.email : ''
+    return this.httpClient.get<GetUserResponse>(environment.API_URL + '/user' + urlQuery)
   }
 }

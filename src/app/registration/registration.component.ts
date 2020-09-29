@@ -43,9 +43,9 @@ export class RegistrationComponent implements OnInit {
         }
       };
       this.router.navigate(['/profile'], navigationExtras);
-      //alert(user.email)
     }, (error) => {
-      alert("Alert")
+      alert(error.error.error)
+      this.isLoading = false
     })
   }
 
